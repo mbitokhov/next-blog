@@ -7,6 +7,10 @@ body,
   font-family: 'Hack' monospace;
 }
 
-.spacer {
-  flex-grow: 9999;
+main {
+  padding: $size-5;
+
+  @include large {
+    padding: $size-2;
+  }
 }

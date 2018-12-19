@@ -31,11 +31,11 @@ const MainLayout: React.FunctionComponent<LayoutProps> = (props) => {
           </Sidebar>
         </Column>
         <Column className="blog" size={9}>
-          <div className="is-padding-5 is-padding-2-medium" >
-            <div className="content">
+          <main className="is-padding-5 is-padding-2-medium" >
+            <article className="content">
               {props.children}
-            </div>
-          </div>
+            </article>
+          </main>
         </Column>
       </Columns>
     </div>
