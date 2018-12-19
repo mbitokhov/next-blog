@@ -53,7 +53,6 @@ class Sidebar extends React.Component<SidebarProps, SidebarState> {
             <a className="item" href="/projects">Future Projects</a>
             <a className="item" href="https://github.com/mbitokhov">Github</a>
           </div>
-          <div className="spacer"></div>
           <div className="quote">
             {this.props.children}
           </div>
