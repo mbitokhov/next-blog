@@ -26,7 +26,6 @@ class Sidebar extends React.Component<SidebarProps, SidebarState> {
   }
 
   toggler() {
-    console.log('toggler', this.state.active);
     this.setState((previous) => {
       return {
         active: !previous.active,
