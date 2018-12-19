@@ -1,0 +1,83 @@
+@mixin from($from) {
+  @media only screen and (min-width: $from) {
+    @content;
+  }
+}
+
+@mixin to($to) {
+  @media only screen and (max-width: $to) {
+    @content;
+  }
+}
+
+@mixin from-to($from, $to) {
+  @media only screen and (min-width: $from) and (max-width: $to) {
+    @content;
+  }
+}
+
+@mixin small {
+  @include to($breakpoint-small - 1) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @include from($breakpoint-medium) {
+    @content;
+  }
+}
+
+@mixin medium-only {
+  @include from-to($breakpoint-medium, $breakpoint-large - 1) {
+    @content;
+  }
+}
+
+@mixin large {
+  @include from($breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin below-large {
+  @include to($breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin responsive($className) {
+  .#{$className} {
+    @content;
+  }
+
+  @include small {
+    .#{$className}-small {
+      @content;
+    }
+  }
+
+  @include medium {
+    .#{$className}-medium {
+      @content;
+    }
+  }
+
+  @include large {
+    .#{$className}-large {
+      @content;
+    }
+  }
+
+  @include medium-only {
+    .#{$className}-medium-only {
+      @content;
+    }
+  }
+
+  // @include below-medium {
+  //   .#{$className}-below-medium {
+  //     @content;
+  //   }
+  // }
+}

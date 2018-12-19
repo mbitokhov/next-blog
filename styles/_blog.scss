@@ -1,0 +1,129 @@
+$navbar-height: 70px;
+
+.blog {
+  min-height: calc(100vh - #{$navbar-height});
+
+  // force the content to take up the entire screen, even if the content isn't
+  // large enough
+  @include large {
+    min-height: 100vh;
+  }
+
+  .content {
+    // center content
+    margin: 0 auto;
+
+    max-width: $breakpoint-medium;
+    width: 100%;
+  }
+
+  // code
+  pre {
+    overflow-x: auto;
+    border: 1px;
+
+    // remove numbering on smaller screens
+    @include below-large {
+      ol {
+        padding-inline-start: 0px;
+      }
+
+      li {
+        list-style: none;
+      }
+    }
+  }
+
+  // make text easier to read
+  .block {
+    line-height: $size-5;
+    margin-bottom: $size-4;
+  }
+
+  .title-block {
+    margin-bottom: $size-4;
+  }
+
+  .title {
+    font-size: $size-3;
+  }
+
+  .subtitle {
+    font-size: $size-6;
+  }
+}
+
+.sidebar {
+  // used in order to make sidebar into top nav
+  min-height: $navbar-height;
+
+  @include below-large {
+    .sidebar-main {
+      height: $navbar-height;
+
+      display: flex;
+      align-items: stretch;
+    }
+
+    .sidebar-content:not(.is-active) {
+      display: none;
+    }
+  }
+
+  @include large {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .sidebar-content {
+      flex-grow: 999;
+
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .quote {
+      margin-top: auto;
+      padding-bottom: 20px;
+    }
+  }
+
+  // brand ie: "Michael Bitohkov"
+  .brand {
+    font-weight: 700;
+    font-size: $size-5;
+
+    @include large {
+      width: 100%;
+      padding: 30px 10px; 
+      font-size: $size-4;
+    }
+  }
+
+  .item, .quote {
+    padding: 10px 15px;
+
+    display: flex;
+    align-items: center;
+  }
+
+  // burger for mobile
+  .burger {
+    // ($navbar-height - (height of divs)) / 2 for top only
+    padding: ($navbar-height - 15px) / 2;
+
+    // force burger all the way to the right
+    margin-left: auto;
+
+    > * {
+      margin: 3px;
+      height: 2px;
+      width: 20px;
+    }
+
+    @include large {
+      display: none;
+    }
+  }
+}

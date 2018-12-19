@@ -1,0 +1,12 @@
+@include responsive("fills") {
+  height: 100%;
+  width: 100%;
+}
+
+@include responsive("fills-width") {
+  width: 100%;
+}
+
+@include responsive("fills-height") {
+  height: 100%;
+}

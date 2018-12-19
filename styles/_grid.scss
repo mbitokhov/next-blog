@@ -1,0 +1,20 @@
+@include responsive('columns') {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  > * {
+    flex: none;
+  }
+
+  @for $i from 1 through 12 {
+    @include responsive("column-#{$i}") {
+      width: percentage($i / 12);
+    }
+  }
+}
+

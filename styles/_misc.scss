@@ -1,0 +1,12 @@
+html,
+body,
+#__next{
+  min-height: 100%;
+  min-width: 100%;
+
+  font-family: 'Hack' monospace;
+}
+
+.spacer {
+  flex-grow: 9999;
+}

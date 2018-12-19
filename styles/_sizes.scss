@@ -1,0 +1,25 @@
+@for $i from 1 through length($sizes) {
+  @include responsive('is-#{$i}') {
+    font-size: nth($sizes, $i);
+  }
+
+  @include responsive('is-margin-#{$i}') {
+    margin: nth($sizes, $i);
+  }
+
+  @include responsive('is-padding-#{$i}') {
+    padding: nth($sizes, $i);
+  }
+
+  @include responsive('is-height-#{$i}') {
+    height: nth($sizes, $i);
+  }
+}
+
+@include responsive('is-paddingless') {
+  padding: 0px;
+}
+
+@include responsive('is-marginless') {
+  padding: 0px;
+}

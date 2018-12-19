@@ -1,0 +1,54 @@
+@import "./variables";
+
+.onedark {
+  background-color: $onedark-black;
+  color: $onedark-white;
+
+  .blog {
+    background-color: $onedark-black;
+    color: $onedark-white;
+  }
+
+  .sidebar {
+    background-color: darken($onedark-black, 2%);
+
+    .brand {
+      color: $onedark-white;
+      text-decoration: none;
+    }
+
+    a.item {
+      color: $onedark-white;
+      text-decoration: none;
+
+      &:hover {
+        background-color: darken($onedark-black, 5%);
+      }
+    }
+
+    .quote {
+      margin-top: 20px;
+      color: darken($onedark-white, 10%);
+    }
+
+    .burger * {
+      background-color: $onedark-white;
+    }
+  }
+
+
+  // https://github.com/google/code-prettify/blob/master/src/prettify.css#L22
+  .pln { color: $onedark-white }  /* plain text */
+  .str { color: $onedark-green }  /* string content */
+  .kwd { color: $onedark-blue }  /* a keyword */
+  .com { color: $onedark-comment-grey }  /* a comment */
+  .typ { color: $onedark-light-yellow }  /* a type name */
+  .lit { color: $onedark-dark-yellow }  /* a literal value */
+  /* punctuation, lisp open bracket, lisp close bracket */
+  .pun, .opn, .clo { color: $onedark-white }
+  .tag { color: $onedark-dark-red }  /* a markup tag name */
+  .atn { color: $onedark-dark-yellow }  /* a markup attribute name */
+  .atv { color: $onedark-green }  /* a markup attribute value */
+  .dec, .var { color: $onedark-light-yellow }  /* a declaration; a variable name */
+  .fun { color: $onedark-blue }  /* a function name */
+}
