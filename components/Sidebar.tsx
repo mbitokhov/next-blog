@@ -23,7 +23,6 @@ class Sidebar extends React.Component<SidebarProps, SidebarState> {
     this.setState({
       active: false,
     });
-    console.log('mount', this.state.active);
   }
 
   toggler() {

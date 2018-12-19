@@ -21,7 +21,7 @@ const MainLayout: React.FunctionComponent<LayoutProps> = (props) => {
         <title>{props.title}</title>
         <meta name="description" content={props.description} />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link rel="stylesheet" href="https//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css" />
       </Head>
       <Columns large wrap>
         <Column size={3}>
