@@ -10,7 +10,7 @@ export function everyExists<T>(obj: T, keys: Array<keyof T>): boolean {
   return keys.every((key) => exists(obj, key));
 }
 
-export function randint(start?: number, end?: number) {
+export function randint(start?: number, end?: number): number {
   if (arguments.length === 0) {
     return randint(0, Number.MAX_SAFE_INTEGER);
   }
@@ -22,7 +22,7 @@ export function randint(start?: number, end?: number) {
   return Math.floor(Math.random() * (end - start) + start);
 }
 
-export function randfloat(start?: number, end?: number) {
+export function randfloat(start?: number, end?: number): number {
   if (arguments.length === 0) {
     return randfloat(0, Number.MAX_VALUE);
   }
