@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { classnames } from '../utils/css';
+import QuoteGenerator, { Quote } from '../services/Quotes';
 
 interface SidebarProps {
   title: string;
@@ -7,6 +8,7 @@ interface SidebarProps {
 
 interface SidebarState {
   active: boolean;
+  quote: Quote
 }
 
 
@@ -16,7 +18,8 @@ class Sidebar extends React.Component<SidebarProps, SidebarState> {
 
     this.state = {
       active: true,
-    }
+      quote: QuoteGenerator.make(),
+    };
   }
 
   componentDidMount() {
@@ -31,6 +34,12 @@ class Sidebar extends React.Component<SidebarProps, SidebarState> {
         active: !previous.active,
       };
     })
+  }
+
+  newQuote() {
+    this.setState({
+      quote: QuoteGenerator.make(),
+    });
   }
 
   render() {
@@ -53,7 +62,12 @@ class Sidebar extends React.Component<SidebarProps, SidebarState> {
             <a className="item" href="https://github.com/mbitokhov">Github</a>
           </div>
           <div className="quote">
-            {this.props.children}
+            <div className="block">
+              {this.state.quote.quote}
+            </div>
+            <div className="from">
+              -- {this.state.quote.by}
+            </div>
           </div>
         </div>
       </div>

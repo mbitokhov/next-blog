@@ -85,7 +85,6 @@ $navbar-height: 70px;
 
     .quote {
       margin-top: auto;
-      padding-bottom: 20px;
     }
   }
 
@@ -101,7 +100,15 @@ $navbar-height: 70px;
     }
   }
 
-  .item, .quote {
+  .quote {
+    padding: 20px 20px;
+
+    .from {
+      text-align: right;
+    }
+  }
+
+  .item {
     padding: 10px 15px;
 
     display: flex;

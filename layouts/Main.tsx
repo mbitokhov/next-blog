@@ -31,7 +31,7 @@ const MainLayout: React.FunctionComponent<LayoutProps> = (props) => {
           </Sidebar>
         </Column>
         <Column className="blog" size={9}>
-          <main className="is-padding-5 is-padding-2-medium" >
+          <main>
             <article className="content">
               {props.children}
             </article>
