@@ -1,4 +1,5 @@
 import { Container } from 'inversify';
+import { bindMarkdown } from './markdown';
 
 // okay so this is the best way I found of doing it.
 
@@ -14,4 +15,5 @@ export const container = new Container({
 });
 
 export async function initializeContainer(): Promise<void> {
+  bindMarkdown(container);
 }
