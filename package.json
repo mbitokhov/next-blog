@@ -4,14 +4,17 @@
   "main": "dist/server.js",
   "license": "0BSD",
   "dependencies": {
+    "@types/js-yaml": "^3.11.4",
     "code-prettify": "^0.1.0",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "hack-font": "^3.3.0",
+    "js-yaml": "^3.12.1",
     "markdown-it": "^8.4.2",
     "normalize.css": "^8.0.1",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "ts-lint": "^4.5.1"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.0",
@@ -24,8 +27,8 @@
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.7",
     "inversify": "^5.0.1",
-    "nodemon": "^1.18.9",
     "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
     "reflect-metadata": "^0.1.12",
     "typescript": "^3.2.2"
   },
@@ -34,6 +37,7 @@
     "run": "dist/index.js",
     "watch-ts": "tsc -w",
     "watch-node": "nodemon",
-    "start": "concurrently \"npm:watch-ts\" \"npm:watch-node\""
+    "start": "concurrently \"npm:watch-ts\" \"npm:watch-node\"",
+    "lint": "tslint --project ."
   }
 }
