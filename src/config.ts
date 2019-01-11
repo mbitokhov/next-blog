@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { env, envExists } from "./utils";
+import { env, envExists } from './utils';
 
 dotenv.load();
 

@@ -1,7 +1,7 @@
 import * as Express from 'express';
-import { makeListener } from '../utils/routes';
-import { HomepageController } from '../http/controllers/HomepageController';
 import { container } from '../container';
+import { HomepageController } from '../http/controllers/HomepageController';
+import { makeListener } from '../utils/routes';
 
 export function routes(): Express.Router {
   const router = Express.Router();

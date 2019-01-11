@@ -30,8 +30,7 @@ export function everyExists(obj: any, keys: PropertyKey[]): boolean {
  */
 export function get<T, K extends keyof T, D>(obj: T, key: K, def: D): T[K]|D;
 export function get<T, K extends keyof T, D>(obj: T, key: K): T[K]|undefined;
-export function get<D>(obj: any, key: PropertyKey, def: D): any;
-export function get<D>(obj: any, key: PropertyKey): any;
+export function get<D>(obj: any, key: PropertyKey, def?: D): any;
 export function get<D>(obj: any, key: PropertyKey, def?: D): any {
   return exists(obj, key) ? obj[key] : def;
 }

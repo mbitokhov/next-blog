@@ -1,4 +1,4 @@
-import { randint } from "../utils/random";
+import { randint } from '../utils/random';
 
 export interface Quote {
   quote: string;
@@ -89,11 +89,11 @@ const quotes: ReadonlyArray<Quote> = [
   {
     quote: 'Keep It Simple Stupid',
     by: 'Kelly Johnson',
-  }
+  },
 ];
 
 export default class QuoteGenerator {
-  static make(): Quote {
+  public static make(): Quote {
     return quotes[randint(quotes.length)];
   }
 }

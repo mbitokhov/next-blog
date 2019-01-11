@@ -1,4 +1,4 @@
-import { BaseObject } from "../types";
+import { BaseObject } from '../types';
 
 /**
  * Class names helper, with inspiration from the `classnames` package.

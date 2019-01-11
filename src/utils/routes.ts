@@ -9,5 +9,5 @@ export function makeListener<T, K extends keyof T>(obj: T, key: K): Express.Requ
 
   return (req: Express.Request, res: Express.Response, next: Express.NextFunction) => {
     func.call(obj, req, res, next);
-  }
+  };
 }

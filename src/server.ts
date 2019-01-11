@@ -1,8 +1,8 @@
 import * as Express from 'express';
 import 'reflect-metadata';
-import { routes } from './routes';
 import { config } from './config';
 import { initializeContainer } from './container';
+import { routes } from './routes';
 
 async function makeServer(): Promise<Express.Application> {
   await initializeContainer();
