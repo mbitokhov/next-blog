@@ -8,6 +8,7 @@
     "code-prettify": "^0.1.0",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
+    "fast-glob": "^2.2.6",
     "hack-font": "^3.3.0",
     "js-yaml": "^3.12.1",
     "markdown-it": "^8.4.2",
