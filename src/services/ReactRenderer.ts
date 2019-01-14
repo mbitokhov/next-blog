@@ -4,7 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 @injectable()
 export class ReactRenderer {
-  public render(component: any, data: any) {
+  public async render(component: any, data: any): Promise<string> {
     return renderToStaticMarkup(React.createElement(component, data));
   }
 }
