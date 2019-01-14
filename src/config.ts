@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import path from 'path';
 import { env, envExists } from './utils';
 
 dotenv.load();
@@ -9,6 +10,14 @@ export interface SettingsInterface {
   env: string;
   port: string|number;
   secret: Buffer;
+
+  paths: {
+    cwd: string;
+    build: string;
+    docs: string;
+    views: string;
+    styles: string;
+  };
 }
 
 export const config: Readonly<SettingsInterface> = getConfigs();
@@ -18,6 +27,14 @@ function getConfigs(): SettingsInterface {
     env: getEnvironment(),
     port: env('PORT', '3000'),
     secret: Buffer.from(''),
+
+    paths: {
+      cwd: process.cwd(),
+      build: env('BUILD_FOLDER', path.join(process.cwd(), '.build')),
+      docs: env('DOC_FOLDER', path.join(process.cwd(), 'docs')),
+      views: env('VIEW_FOLDER', path.join(process.cwd(), 'dist', 'view')),
+      styles: env('STYLE_FOLDER', path.join(process.cwd(), 'styles')),
+    },
   };
 
   Object.defineProperty(settings, 'secret', {
