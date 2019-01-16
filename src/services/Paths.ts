@@ -1,4 +1,5 @@
 import { injectable } from 'inversify';
+import { join } from 'path';
 
 interface PathLocations {
   readonly cwd: string;
@@ -9,26 +10,26 @@ interface PathLocations {
 }
 
 @injectable()
-export class Paths implements PathLocations {
+export class Paths {
   constructor(protected readonly base: PathLocations) {}
 
-  get cwd() {
-    return this.base.cwd;
+  public cwd(path: string = ''): string {
+    return join(this.base.cwd, path);
   }
 
-  get build() {
-    return this.base.build;
+  public build(path: string = ''): string {
+    return join(this.base.cwd, path);
   }
 
-  get docs() {
-    return this.base.docs;
+  public docs(path: string = ''): string {
+    return join(this.base.cwd, path);
   }
 
-  get views() {
-    return this.base.views;
+  public views(path: string = ''): string {
+    return join(this.base.cwd, path);
   }
 
-  get styles() {
-    return this.base.styles;
+  public styles(path: string = ''): string {
+    return join(this.base.cwd, path);
   }
 }
