@@ -1,16 +1,15 @@
 import * as Express from 'express';
 import 'reflect-metadata';
+import { App } from './Application';
 import { config } from './config';
-import { initializeContainer } from './container';
+import { container, initializeContainer } from './container';
 import { routes } from './routes';
 
 async function makeServer(): Promise<Express.Application> {
   await initializeContainer();
 
-  const server = Express.default();
-  server.use(routes());
-
-  return server;
+  const app = container.get(App);
+  return app.make();
 }
 
 makeServer().then((app) => {
