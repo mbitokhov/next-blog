@@ -56,3 +56,14 @@ export function env<D>(key: string, defaultValue?: D): string|D|undefined {
 export function envExists(key: string): boolean {
   return exists(process.env, key);
 }
+
+export function id(): string {
+  return Math.random().toString(36).substr(2);
+}
+
+export function isPrimitive(obj: any): obj is string|number|boolean|null|undefined {
+  const type = typeof obj;
+
+  return type === 'string' || type === 'boolean' || type === 'number' ||
+         type === 'undefined' || type === null;
+}

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import QuoteGenerator, { Quote } from '../../services/Quotes';
 import { classnames } from '../../utils/css';
+import QuoteGenerator, { Quote } from '../../utils/Quotes';
 
 interface SidebarProps {
   brand: string;

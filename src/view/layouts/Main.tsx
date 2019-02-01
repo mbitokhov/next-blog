@@ -32,9 +32,8 @@ const MainLayout: React.FunctionComponent<LayoutProps> = (props) => {
   return (
     <html>
       <head>
-        {getTitle(props)}
-        {getDescription(props)}
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <link rel='stylesheet' href='/static/markdown.css' />
         <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css' />
       </head>
       <body className={classnames('onedark', props.className)} style={props.style}>
@@ -50,6 +49,7 @@ const MainLayout: React.FunctionComponent<LayoutProps> = (props) => {
             </main>
           </Column>
         </Columns>
+        <script src='/static/markdown.js' async defer></script>
       </body>
     </html>
   );
