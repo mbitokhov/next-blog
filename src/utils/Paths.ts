@@ -1,13 +1,6 @@
 import { injectable } from 'inversify';
 import { join } from 'path';
-
-interface PathLocations {
-  readonly cwd: string;
-  readonly build: string;
-  readonly docs: string;
-  readonly views: string;
-  readonly styles: string;
-}
+import { PathLocations } from '../config';
 
 @injectable()
 export class Paths {
@@ -19,6 +12,10 @@ export class Paths {
 
   public build(...paths: string[]): string {
     return join(this.base.build, ...paths);
+  }
+
+  public public(...paths: string[]): string {
+    return join(this.base.public, ...paths);
   }
 
   public docs(...paths: string[]): string {

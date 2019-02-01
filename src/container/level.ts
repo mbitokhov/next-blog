@@ -1,7 +1,7 @@
 import { Container } from 'inversify';
 import leveldown from 'leveldown';
 import levelup from 'levelup';
-import { Paths } from '../services/Paths';
+import { Paths } from '../utils/Paths';
 
 export const LEVEL = Symbol.for('LEVEL_DB');
 

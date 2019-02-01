@@ -1,6 +1,6 @@
 import { Container } from 'inversify';
 import { config } from '../config';
-import { Paths } from '../services/Paths';
+import { Paths } from '../utils/Paths';
 import { bindMarkdown } from './markdown';
 
 // okay so this is the best way I found of doing it.
