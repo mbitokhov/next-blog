@@ -58,7 +58,9 @@ export function makeEntryFunc(...entries: WebpackEntry[]): () => Promise<Entry> 
 export async function mergeEntries(...entries: WebpackEntry[]): Promise<Entry> {
   const resolvedEntries = await Promise.all(entries.map(normalizeEntry));
 
-  return Object.assign({}, ...resolvedEntries);
+  const ret = Object.assign({}, ...resolvedEntries);
+
+  return ret;
 }
 
 /**
@@ -73,7 +75,6 @@ export function mergePlugins(...plugins: Plugin[][]): Plugin[] {
  */
 async function normalizeEntry(original: WebpackEntry): Promise<Entry> {
   let entry: WebpackEntry;
-  console.log({original});
 
   if (typeof original === 'function') {
     entry = await Promise.resolve(original());

@@ -41,7 +41,7 @@ export class MarkdownPost {
   public async render(file: string): Promise<string> {
     const markdown = await this.markdown.render(file);
 
-    return this.react.react('markdown', {
+    return this.react.renderReactFile('markdown', {
       data: markdown.html,
       ...markdown.metadata,
     });

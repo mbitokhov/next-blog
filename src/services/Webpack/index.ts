@@ -6,22 +6,24 @@ import { config, isProd } from '../../config';
 import { Paths } from '../../utils/Paths';
 import { Webpacker } from './Webpacker';
 
-async function buildEntries(): Promise<Entry> {
-  const globbed = await glob('**', {
-    cwd: config.paths.pages,
-    absolute: true,
-  });
+function buildEntriesFor(path: string): () => Promise<Entry> {
+  return async () => {
+    const globbed = await glob('**', {
+      cwd: path,
+      absolute: true,
+    });
 
-  const entries: Entry = {};
+    const entries: Entry = {};
 
-  for (const file of globbed as string[]) {
-    const localizedFile = file.substr(config.paths.pages.length + 1);
-    const withoutExtension = localizedFile.replace(/(.*)\.\w+?$/, '$1');
+    for (const file of globbed as string[]) {
+      const localizedFile = file.substr(path.length + 1);
+      const withoutExtension = localizedFile.replace(/(.*)\.\w+?$/, '$1');
 
-    entries[withoutExtension] = file;
-  }
+      entries[withoutExtension] = file;
+    }
 
-  return entries;
+    return entries;
+  };
 }
 
 @injectable()
@@ -43,8 +45,18 @@ export class Webpack {
       .name('client')
       .dist(this.paths.public('static'))
       .target('web')
-      .library('load')
+      .library('_pageLoad')
       .libraryTarget('jsonp');
+  }
+
+  public getAppConfig(): Webpacker {
+    return this.getBaseConfig()
+      .dist(this.paths.public('static'))
+      .clearEntry()
+      .name('app')
+      .addEntry({
+        app: this.paths.views('app.js'),
+      });
   }
 
   public getBaseConfig(): Webpacker {
@@ -52,8 +64,8 @@ export class Webpack {
 
     wp.basePath(this.paths.cwd())
       .mode(config.env)
-      .bail(isProd())
-      .addEntry(buildEntries)
+      .bail(true)
+      .addEntry(buildEntriesFor(this.paths.views('pages')))
       .plugins(
         new MiniCssExtractPlugin({
           filename: '[name].css',

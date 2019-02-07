@@ -7,7 +7,7 @@ export function routes(): Express.Router {
   const router = Express.Router();
   const homepage = container.get(HomepageController);
 
-  router.use('', makeListener(homepage, 'index'));
+  router.use('/', makeListener(homepage, 'index'));
 
   return router;
 }

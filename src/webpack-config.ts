@@ -6,4 +6,5 @@ const webpack = container.get(Webpack);
 module.exports = [
   webpack.getClientConfig().getConfig(),
   webpack.getServerConfig().getConfig(),
+  webpack.getAppConfig().getConfig(),
 ];
